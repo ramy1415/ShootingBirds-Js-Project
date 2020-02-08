@@ -17,10 +17,7 @@ class BlackDuck{
         return $(s)
     }
 }
-
 //haidy
-
-
 class GBird
 {
     constructor(){
@@ -36,13 +33,9 @@ class GBird
     // this.bird.Speed= 50="px";
     this.bird.style.position = 'absolute';
     document.querySelector("#game").appendChild(this.bird);
-    
     return $(this.bird);
-
     }
-    
 }
-
 //Atef
 class WhiteDuck {
     constructor() {
@@ -58,13 +51,9 @@ class WhiteDuck {
 
         return this.duckBody;
     }
-
-    
-
     // animateDuck(val) {
     //     this.duckBody.animate({ left: val }, 5000);
     // }
 }
-
 export {BlackDuck ,GBird ,WhiteDuck};
 

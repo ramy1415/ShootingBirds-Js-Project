@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,35 +12,39 @@
     <link href="Style/font-awesome.css" rel="stylesheet" />
     <script type="module" src="game.js"></script>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        body{
+
+        body {
             height: 100vh;
             background-color: rebeccapurple;
             -webkit-user-select: none;
             -webkit-user-drag: none;
             overflow: hidden;
         }
-        img{
+
+        img {
             -webkit-user-select: none;
             -webkit-user-drag: none;
         }
 
-        .BlackDuck{
+        .BlackDuck {
             width: 100px;
             height: 100px;
             z-index: 1;
         }
-        .moon{
+
+        .moon {
             position: absolute;
             left: 100%;
             z-index: 0;
             -webkit-user-select: none;
             -webkit-user-drag: none;
         }
-        .sun{
+
+        .sun {
             position: absolute;
             left: 100px;
             width: 250px;
@@ -47,13 +52,15 @@
             -webkit-user-select: none;
             -webkit-user-drag: none;
         }
-        #game{
+
+        #game {
             height: 80%;
             border: 1px solid black;
             -webkit-user-select: none;
             -webkit-user-drag: none;
         }
-        span{
+
+        span {
             z-index: 1;
         }
 
@@ -71,13 +78,14 @@
         } */
 
         .bg {
-                background-image: url("images/back.png");
-                width: 100%;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-            }
-        .bg2{
+            background-image: url("images/back.png");
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .bg2 {
             background-image: url("images/fore.png");
             background-position: center;
             background-repeat: no-repeat;
@@ -85,25 +93,50 @@
         }
     </style>
 </head>
+
 <body>
-    <audio loop type="audio/mpeg" src="Jingle Bells - Free MP3 Instrumental - Christmas Carol - Karaoke Version (mp3cut.net) (2).mp3" autoplay></audio>
-        <!-- <audio type="audio/mpeg" src="gun_fire.mp3"></audio> -->
-    
-    <div class="container-fluid h-100" id="game" style="background-color: rgb(129, 185, 215);" >
-        <div class="row h-75" >
+    <audio loop type="audio/mpeg"
+        src="Jingle Bells - Free MP3 Instrumental - Christmas Carol - Karaoke Version (mp3cut.net) (2).mp3"
+        autoplay></audio>
+    <div class="container-fluid h-100" id="game" style="background-color: rgb(129, 185, 215);">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            pause
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Home</button>
+                        <button type="button" class="btn btn-primary" id="StartGame">Begin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row h-75">
             <img class="sun" src="images/sun.gif" alt="">
-            <img  class="moon" src="images/loop_luna_talking.gif" alt="">
-            <span >score : </span>
+            <img class="moon" src="images/loop_luna_talking.gif" alt="">
+            <span>score : </span>
             <span id="myscore">0</span>
-            <span >name : </span>
+            <span>name : </span>
             <span id="myname">player name</span>
-            <span >diff : </span>
+            <span>diff : </span>
             <span id="mydiff">255</span>
             <img src="images/back.png" alt="" style="width: 100%; position: absolute;bottom: 0;">
         </div>
     </div>
-
-    
     <!-- <div id="game" class="background">
         <img class="sun" src="images/sun.gif" alt="">
         <img  class="moon" src="images/loop_luna_talking.gif" alt="">
@@ -121,4 +154,7 @@
     <!-- <div id="foreground"></div> -->
 
 </body>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 </html>
