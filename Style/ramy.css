@@ -1,0 +1,53 @@
+#red, #green, #blue {
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+  }
+  #swatch {
+    width: 92px;
+    height: 125px;
+    margin-top: 18px;
+  }
+
+
+  #soundwatch{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+  }
+  #cursor-controls{
+    text-align: center;
+  }
+  #cursor-controls>*{
+    margin: 10px;
+  }
+  .soundOn{
+    background-image: url('../images/soundOn.jpg');
+  }
+  .soundOff{
+    background-image: url('../images/soundOff.jpg');
+  }
+
+  #tabs-1{
+    text-align: center;
+  }
+  #tabs-1>*{
+    margin: 10px auto;
+  }
+  #difficulty-controls{
+    display: -webkit-box;
+  }
+
+  .addBorder{
+    border: 2px red solid;
+  }
+
+
+  #tabs{
+    width: 470px;
+    margin: 15% auto;
+  }
+
+  #red .ui-slider-range { background: #ef2929; }
+  #red .ui-slider-handle { border-color: #ef2929; }

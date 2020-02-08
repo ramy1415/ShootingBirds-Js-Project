@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="Style/ramy.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="js/ramy.js"></script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Name</a></li>
+            <li><a href="#tabs-2">Settings</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;width:190px;">
+                <span class="ui-icon ui-icon-key" style="float:left; margin:-2px 5px 0 0;"></span>
+                Enter your name
+            </p>
+            <input type="text" id="myName" required>
+            <br>
+            <input type="submit" value="Play">
+        </div>
+        <div id="tabs-2">
+            <section class="ui-widget-content" style="border:0;">
+                <p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
+                    <img src="images/diff.jpg" alt="">
+                    <span style="float:left; margin:-2px 5px 0 0;"></span>
+                    Choose Difficulty
+                </p>
+                <div id="difficulty-controls">
+                    <div id="red"></div>
+                    <div id="swatch" class="ui-widget-content ui-corner-all"></div>
+                </div>
+            </section>
+            <section class="ui-widget-content" style="border:0;">
+                <p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
+                    <span class="ui-icon ui-icon-volume-on" style="float:left; margin:-2px 5px 0 0;"></span>
+                    sound
+                </p>
+                <div id="sound-controls">
+                    <div id="soundwatch" class="soundOn"></div>
+                </div>
+            </section>
+            <section class="ui-widget-content" style="border:0;">
+                <p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
+                    <span class="ui-icon ui-icon-wrench" style="float:left; margin:-2px 5px 0 0;"></span>
+                    change cursor
+                </p>
+                <!-- <div id="cursor-controls">
+                    <input type="image" src="images/aim3.png">
+                    <input type="image" src="images/aim2.png">
+                    <input type="image" src="images/aim1.png">
+                </div> -->
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
