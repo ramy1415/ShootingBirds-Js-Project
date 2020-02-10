@@ -29,9 +29,9 @@ $(function(){
         if(minimumTime==0){return}
         var difficulty=sessionStorage.getItem("difficulty")*12;
         for(var i=0;i<3;i++){
-            new BlackDuck(100,100).delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},5000-difficulty)
-            new GBird().delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},5000-difficulty)
-            new WhiteDuck().delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},5000-difficulty)
+            new BlackDuck(100,100).delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-difficulty)
+            new GBird().delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-difficulty)
+            new WhiteDuck().delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-difficulty)
         }
         generateBlackDucks(minimumTime-5000)
     }
