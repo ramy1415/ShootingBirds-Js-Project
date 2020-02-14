@@ -1,5 +1,6 @@
+//ramy's first page script settings of the game
+//setting difficulty and game sound and cursor image
 $(function () {
-  //ramy
   $("#tabs").tabs();
   function hexFromRGB(r, g, b) {
     var hex = [
@@ -15,7 +16,7 @@ $(function () {
     return hex.join("").toUpperCase();
   }
   function refreshSwatch() {
-    //getting difficulty value
+    //getting difficulty value from slider
     difficulty = $("#red").slider("value")      
     //changing difficulty bar color                                          
     hex = hexFromRGB(difficulty, 90, 0);
@@ -42,9 +43,10 @@ $(function () {
     slide: refreshSwatch,
     change: refreshSwatch
   });
-  $("#red").slider("value", 50);
+  $("#red").slider("value", 50);  //initial value is 50
 
-  //SoundButton Changing background to on or off
+
+  // SoundButton Changing background to on or off
   $("#soundwatch").on('click', function () {
     $(this).toggleClass('soundOn')
     $(this).toggleClass('soundOff')
@@ -53,16 +55,16 @@ $(function () {
   $('input[value="Play"]').on('click',function(){
     sessionStorage.setItem("name",$(':text').val())
     sessionStorage.setItem("difficulty",$("#red").slider("value"))
-    if(!localStorage.getItem($(':text').val())){
+    if(!localStorage.getItem($(':text').val())){  //if player doesn't exist creates a new one
       localStorage.setItem($(':text').val(),"0")
       localStorage.setItem($(':text').val()+"Best","0")
     }
     location.replace("game.html")
   })
-  //crosshair button getting crosshair
+  //crosshair button in settings getting crosshair
   $('input[type="image"]').on('click',function(){  
     $('input[type="image"]').removeClass('addBorder')
     $(this).addClass('addBorder')
-    crosshair=$(this).attr('src')
+    sessionStorage.setItem("crosshair",$(this).attr('src'))
   })
 });

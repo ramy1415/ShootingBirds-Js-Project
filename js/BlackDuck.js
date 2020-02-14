@@ -1,14 +1,15 @@
+//ramy made this class (Black bird)
 class BlackDuck{
-    constructor(reward){
+    constructor(reward){ //reward is additional points depending on the difficulty of the game
         this.clicked=false;
         var s=$('<img class="BlackDuck Duck" src="images/BlackDuck.gif" alt="" draggable="false">')
-        $(s).css({'left':"-200px",'position':'absolute','top':Math.random()*60+"%"})
+        $(s).css({'left':"-100px",'position':'absolute','top':Math.random()*60+"%"})
         $("#game").append(s);
         $(s).on('click',function(){
-            if(!this.clicked){
-                $("#totalscore").text((parseInt)($("#totalscore").text())-10-reward)
-                $("#bestscore").text((parseInt)($("#bestscore").text())-10-reward)
-                $("#myscore").text((parseInt)($("#myscore").text())-10-reward)
+            if(!this.clicked){  //if the image is not clicked yet .. modify scores then change the image source and change the direction of animation to down
+                $("#totalscore").text((parseInt)($("#totalscore").text())-10-reward)  //total score is the account score of all games
+                $("#bestscore").text((parseInt)($("#bestscore").text())-10-reward)     //best score is the best one match score
+                $("#myscore").text((parseInt)($("#myscore").text())-10-reward)          //this current game score
             }
             this.clicked=true;
             $(s).attr('src',"images/deadBlack.png")
@@ -18,19 +19,22 @@ class BlackDuck{
         return $(s)
     }
 }
-//haidy
+//haidy made this class (gold bird)
 class GBird
 {
+    //ramy just added reward to constructor
     constructor(reward){
     this.bird = document.createElement('img');
     this.bird.src="images/gold.gif";
     this.clicked=false;
     this.bird.style.top=Math.random()*60+'%';
-    this.bird.style.left=-90+"px";
+    this.bird.style.left=-100+"px";
     this.bird.classList.add("Duck");
+    this.bird.setAttribute("draggable","false")
     this.bird.style.position = 'absolute';
     document.querySelector("#game").appendChild(this.bird);
     $(this.bird).on('click',function(){
+        //ramy just added the scores in this function
         if(!this.clicked){
             $("#totalscore").text((parseInt)($("#totalscore").text())+20+reward) 
             $("#bestscore").text((parseInt)($("#bestscore").text())+20+reward) 
@@ -44,8 +48,9 @@ class GBird
     return $(this.bird);
     }
 }
-//Atef
+//Atef made this class (white bird)
 class WhiteDuck {
+    //ramy just added reward to constructor
     constructor(reward) {
         this.duckBody = $("<img/>");
         this.duckBody.attr("src", "images/red.gif");
@@ -53,10 +58,10 @@ class WhiteDuck {
         this.duckBody.addClass("DuckImg");
         this.duckBody.addClass("Duck");
         this.clicked=false;
-        // this.appendTo($("#background"));
         $("#game").append(this.duckBody);
         $(this.duckBody).on('click',function(){
             if(!this.clicked){
+                //ramy just added the scores in this function
                 $("#totalscore").text((parseInt)($("#totalscore").text())+5+reward) 
                 $("#bestscore").text((parseInt)($("#bestscore").text())+5+reward)
                 $("#myscore").text((parseInt)($("#myscore").text())+5+reward)
@@ -70,6 +75,7 @@ class WhiteDuck {
     }
     
 }
+//Atef made this class
 class Bomb {
     constructor(left1) {
         var bounds = $('<div id="bounds"><img src="images/bomb.png" class="BombImg"/></div>');

@@ -10,7 +10,7 @@
     <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
     <link href="Style/bootstrap.css" rel="stylesheet" />
     <link href="Style/font-awesome.css" rel="stylesheet" />
-    <script type="module" src="game.js"></script>
+    <script type="module" src="js/game.js"></script>
     <style>
         * {
             padding: 0;
@@ -18,19 +18,15 @@
         }
         body {
             height: 100vh;
-            background-color: rebeccapurple;
             -webkit-user-select: none;
             -webkit-user-drag: none;
             overflow: hidden;
+            cursor: inherit;
+
         }
         img {
             -webkit-user-select: none;
             -webkit-user-drag: none;
-        }
-        .BlackDuck {
-            width: 100px;
-            height: 100px;
-            z-index: 1;
         }
         .moon {
             position: absolute;
@@ -56,36 +52,19 @@
             border: 1px solid black;
             -webkit-user-select: none;
             -webkit-user-drag: none;
-            color: green;
+            color: red;
         }
-        .row>span {
+        .details>div {
             z-index: 1;
             font-size: 2vh;
             font-weight: bold;
-        }
-        .bg {
-            background-image: url("images/back.png");
-            width: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-
-        .bg2 {
-            background-image: url("images/fore.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-        .DuckImg {
-            z-index: 2;
-            position: absolute;
-            -webkit-user-select: none;
-            -webkit-user-drag: none;
+            margin: 0 auto;
         }
         .Duck{
             width: 10vh;
             height: 10vh;
+            z-index: 1;
+            position: absolute;
         }
         #bounds {
             width: 400px;
@@ -95,7 +74,6 @@
             -webkit-user-select: none;
             -webkit-user-drag: none;    
         }
-
         .BombImg {
             z-index: 5;
             width: 10vh;
@@ -110,7 +88,7 @@
 </head>
 <body>
     <audio loop type="audio/mpeg"
-        src="Jingle Bells (Instrumental) - YouTube.mp3"
+        src="sounds/Jingle Bells (Instrumental) - YouTube.mp3"
         autoplay></audio>
     <div class="container-fluid h-100" id="game" style="background-color: rgb(129, 185, 215);">        
         <!-- Modal -->
@@ -152,19 +130,29 @@
                 </div>
             </div>
         </div>
-        <div class="row h-75">
+        <div class="row h-75 text-center details">
             <img class="sun" src="images/sun.gif" alt="">
             <img class="moon" src="images/loop_luna_talking.gif" alt="">
-            <span>score : </span>
-            <span id="myscore">0</span>
-            <span>name : </span>
-            <span id="myname">player name</span>
-            <span>reward : </span>
-            <span id="myreward">0</span>
+            <div>
+                <span>score : </span>
+                <span id="myscore">0</span>
+            </div>
+            <div>
+                <span>name : </span>
+                <span id="myname">player name</span>
+            </div>
+            <div>
+                <span>reward : </span>
+                <span id="myreward">0</span>
+            </div>
+            <div>
+                <span >
+                    &nbsp;&nbsp;Timer:&nbsp;<span id="timer">0:00</span>
+                </span> 
+            </div>
+            
             <img src="images/back.png" alt="" style="width: 100%; position: absolute;bottom: 0;">
-            <span >
-                &nbsp;&nbsp;Timer:&nbsp;<span id="timer">0:00</span>
-            </span> 
+            
         </div>
     </div>
 </body>
