@@ -38,6 +38,8 @@
             z-index: 0;
             -webkit-user-select: none;
             -webkit-user-drag: none;
+            width: 30vh;
+            height: 30vh;
         }
         .sun {
             position: absolute;
@@ -46,6 +48,8 @@
             z-index: 0;
             -webkit-user-select: none;
             -webkit-user-drag: none;
+            width: 30vh;
+            height: 30vh;
         }
         #game {
             height: 80%;
@@ -70,11 +74,41 @@
             background-repeat: no-repeat;
             background-size: contain;
         }
+        .DuckImg {
+            z-index: 2;
+            position: absolute;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+        }
+        .Duck{
+            width: 10vh;
+            height: 10vh;
+        }
+        #bounds {
+            width: 400px;
+            height: 400px;
+            top:-100px;
+            position: absolute;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;    
+        }
+
+        .BombImg {
+            z-index: 5;
+            width: 10vh;
+            height: 10vh;
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            border: 1px red solid;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+        }
     </style>
 </head>
 <body>
     <audio loop type="audio/mpeg"
-        src="Jingle Bells - Free MP3 Instrumental - Christmas Carol - Karaoke Version (mp3cut.net) (2).mp3"
+        src="Jingle Bells (Instrumental) - YouTube.mp3"
         autoplay></audio>
     <div class="container-fluid h-100" id="game" style="background-color: rgb(129, 185, 215);">        
         <!-- Modal -->
@@ -94,6 +128,27 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="replayModel" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="false" data-keyboard="false" data-backdrop="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Play again</h5>
+                    </div>
+                    <div class="modal-body text-center">
+                        Do you want play again!
+                        <br>
+                        <br>
+                        <p>Total Score : <span id="totalscore"> 0 </span></p>
+                        <p>best Score : <span id="bestscore"> 0 </span></p>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary mx-auto" id="ReplayGame">Replay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row h-75">
             <img class="sun" src="images/sun.gif" alt="">
             <img class="moon" src="images/loop_luna_talking.gif" alt="">
@@ -104,10 +159,12 @@
             <span>diff : </span>
             <span id="mydiff">255</span>
             <img src="images/back.png" alt="" style="width: 100%; position: absolute;bottom: 0;">
+            <span >
+                &nbsp;&nbsp;Timer:&nbsp;<span id="timer">0:00</span>
+            </span> 
         </div>
     </div>
 </body>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
 </html>

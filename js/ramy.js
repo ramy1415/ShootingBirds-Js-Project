@@ -53,6 +53,10 @@ $(function () {
   $('input[value="Play"]').on('click',function(){
     sessionStorage.setItem("name",$(':text').val())
     sessionStorage.setItem("difficulty",$("#red").slider("value"))
+    if(!localStorage.getItem($(':text').val())){
+      localStorage.setItem($(':text').val(),"0")
+      localStorage.setItem($(':text').val()+"Best","0")
+    }
     location.replace("game.html")
   })
   //crosshair button getting crosshair

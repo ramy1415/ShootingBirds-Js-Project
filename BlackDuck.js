@@ -3,15 +3,16 @@ class BlackDuck{
         this.speed=speed;
         this.place=place;
         this.clicked=false;
-        var s=$('<img class="BlackDuck" src="images/BlackDuck.gif" alt="" draggable="false">')
-        $(s).css({'left':"-200px",'position':'absolute','top':Math.random()*400+"px"})
+        var s=$('<img class="BlackDuck Duck" src="images/BlackDuck.gif" alt="" draggable="false">')
+        $(s).css({'left':"-200px",'position':'absolute','top':Math.random()*60+"%"})
         $("#game").append(s);
         $(s).on('click',function(){
             if(!this.clicked){
-                $("#myscore").text((parseInt)($("#myscore").text())-10) 
+                $("#totalscore").text((parseInt)($("#totalscore").text())-10)
+                $("#bestscore").text((parseInt)($("#bestscore").text())-10)
+                $("#myscore").text((parseInt)($("#myscore").text())-10)
             }
             this.clicked=true;
-            console.log($(s).attr('src'))
             $(s).attr('src',"images/deadBlack.png")
             $(s).stop()
             $(s).animate({top:"80"+"%"},1000,"easeOutBounce")
@@ -26,19 +27,18 @@ class GBird
     this.bird = document.createElement('img');
     this.bird.src="images/gold.gif";
     this.clicked=false;
-    this.bird.style.top=Math.random()*400+'px';
+    this.bird.style.top=Math.random()*60+'%';
     this.bird.style.left=-90+"px";
-    this.bird.style.width= "100px";
-    this.bird.style.height= "100px";
-    // this.bird.Speed= 50="px";
+    this.bird.classList.add("Duck");
     this.bird.style.position = 'absolute';
     document.querySelector("#game").appendChild(this.bird);
     $(this.bird).on('click',function(){
         if(!this.clicked){
+            $("#totalscore").text((parseInt)($("#totalscore").text())+20) 
+            $("#bestscore").text((parseInt)($("#bestscore").text())+20) 
             $("#myscore").text((parseInt)($("#myscore").text())+20) 
         }
         this.clicked=true;
-        console.log($(this).attr('src'))
         $(this).attr('src',"images/deadGold.png")
         $(this).stop()
         $(this).animate({top:"80"+"%"},1000,"easeOutBounce")
@@ -51,17 +51,19 @@ class WhiteDuck {
     constructor() {
         this.duckBody = $("<img/>");
         this.duckBody.attr("src", "images/red.gif");
-        this.duckBody.css({"top":Math.random() * 400+"px","left":"-100px","position":"absolute","width":"100px","height":"100px"});
+        this.duckBody.css({"top":Math.random() * 60+"%","left":"-100px","position":"absolute"});
         this.duckBody.addClass("DuckImg");
+        this.duckBody.addClass("Duck");
         this.clicked=false;
         // this.appendTo($("#background"));
         $("#game").append(this.duckBody);
         $(this.duckBody).on('click',function(){
             if(!this.clicked){
-                $("#myscore").text((parseInt)($("#myscore").text())+5) 
+                $("#totalscore").text((parseInt)($("#totalscore").text())+5) 
+                $("#bestscore").text((parseInt)($("#bestscore").text())+5)
+                $("#myscore").text((parseInt)($("#myscore").text())+5)
             }
             this.clicked=true;
-            console.log($(this).attr('src'))
             $(this).attr('src',"images/deadRed.png")
             $(this).stop()
             $(this).animate({top:"80"+"%"},1000,"easeOutBounce")
@@ -70,5 +72,30 @@ class WhiteDuck {
     }
     
 }
-export {BlackDuck ,GBird ,WhiteDuck};
+class Bomb {
+    constructor(left1) {
+        var bounds = $('<div id="bounds"><img src="images/bomb.png" class="BombImg"/></div>');
+        $(bounds).css("left", left1);
+        $("body").append($(bounds));
+        $(bounds).animate({ top: "100" }, 3000);   
+        let score = 0;
+        $(bounds).on("click", "img", function(){
+            $(this).attr("src", "images/bombs.gif").hide(2000);
+            let elev = parseInt($("#background").css("height")) - 120 + 50;
+            for(var i=0; i<$(".Duck").length; i++){
+                var duck1=$($(".Duck")[i]);
+                let left2 = left1 + parseInt($(bounds).css("width"));
+                let top1 = parseInt($(bounds).css("top"));
+                let top2 = top1 + parseInt($(bounds).css("height"));
+                if (parseInt(duck1.css("left")) > left1 - 80 && parseInt(duck1.css("left")) < left2) {
+                if (parseInt(duck1.css("top")) > top1 - 80 && parseInt(duck1.css("top")) < top2) {
+                    duck1.trigger("click");
+                }
+            }
+        }   
+        });
+        return $(bounds);
+    }
+}
+export {BlackDuck ,GBird ,WhiteDuck,Bomb};
 
