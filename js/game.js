@@ -40,6 +40,8 @@ $(function(){
         $('#bestscore').text(0);
         $('#myscore').text(0);
         $('#gamescore').text(0);
+        $('#myname').text(sessionStorage.getItem("name"));
+
         //============ending of ramy code============
 
 
