@@ -1,4 +1,4 @@
-//ramy made this class (Black bird)
+//============begginning of ramy code============
 class BlackDuck{
     constructor(reward){ //reward is additional points depending on the difficulty of the game
         this.clicked=false;
@@ -19,10 +19,15 @@ class BlackDuck{
         return $(s)
     }
 }
-//haidy made this class (gold bird)
+//============ending of ramy code============
+
+
+
+
+
+//============begginning of haidy code============
 class GBird
 {
-    //ramy just added reward to constructor
     constructor(reward){
     this.bird = document.createElement('img');
     this.bird.src="images/gold.gif";
@@ -34,7 +39,6 @@ class GBird
     this.bird.style.position = 'absolute';
     document.querySelector("#game").appendChild(this.bird);
     $(this.bird).on('click',function(){
-        //ramy just added the scores in this function
         if(!this.clicked){
             $("#totalscore").text((parseInt)($("#totalscore").text())+20+reward) 
             $("#bestscore").text((parseInt)($("#bestscore").text())+20+reward) 
@@ -48,9 +52,12 @@ class GBird
     return $(this.bird);
     }
 }
-//Atef made this class (white bird)
+//============ending of haidy code============
+
+
+
+//============begginning of Atef code============
 class WhiteDuck {
-    //ramy just added reward to constructor
     constructor(reward) {
         this.duckBody = $("<img/>");
         this.duckBody.attr("src", "images/red.gif");
@@ -61,7 +68,6 @@ class WhiteDuck {
         $("#game").append(this.duckBody);
         $(this.duckBody).on('click',function(){
             if(!this.clicked){
-                //ramy just added the scores in this function
                 $("#totalscore").text((parseInt)($("#totalscore").text())+5+reward) 
                 $("#bestscore").text((parseInt)($("#bestscore").text())+5+reward)
                 $("#myscore").text((parseInt)($("#myscore").text())+5+reward)
@@ -75,7 +81,6 @@ class WhiteDuck {
     }
     
 }
-//Atef made this class
 class Bomb {
     constructor(left1) {
         var bounds = $('<div id="bounds"><img src="images/bomb.png" class="BombImg"/></div>');
@@ -101,5 +106,7 @@ class Bomb {
         return $(bounds);
     }
 }
+//============ending of Atef code============
+
 export {BlackDuck ,GBird ,WhiteDuck,Bomb};
 

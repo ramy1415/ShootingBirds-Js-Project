@@ -18,7 +18,7 @@ $(function(){
         $("body").on('click',function(){
             gunSound();
             })
-        //============end of haidy code============
+        //============ending of haidy code============
 
 
 
@@ -30,7 +30,7 @@ $(function(){
             backgroundColor: "rgb( 2, 28, 54 )"
           },30000);
         setTimeout(function(){ 
-        $(".moon").delay(500).animate({left:"100px"},1000,"easeOutExpo")
+        $(".moon").delay(500).animate({left:"100px"},1000,"easeOutExpo")    //moon image replace sun image
         $(".sun").animate({left:"110%"},1000,"easeOutExpo")
         }, 30000);
         $("#exampleModalCenter").modal('hide')
@@ -40,7 +40,7 @@ $(function(){
         $('#bestscore').text(0);
         $('#myscore').text(0);
         $('#gamescore').text(0);
-        //============end of ramy code============
+        //============ending of ramy code============
 
 
 
@@ -50,12 +50,14 @@ $(function(){
             let bombExpectedLeft = Number.parseInt(Math.random() * 900) + 1;                
             new Bomb(bombExpectedLeft).delay(2000).hide(500);
             }, 6000);
-        //============end of Atef code============
+        //============ending of Atef code============
         
 
 
         
     }
+
+
     // ============Stand Alone Functions============
 
 
@@ -63,16 +65,16 @@ $(function(){
 
     
     //============begginning of ramy code============
-    function generateDucks(minimumTime,difficultyReward,speed){ //this function creates a 2 black/white/gold ducks every 5 seconds on a random time over 60 seconds 
+    function generateDucks(minimumTime,difficultyReward,speed){ //creating a 2 black/white/gold ducks every 5 seconds on a random time over 60 seconds 
         if(minimumTime<0){return}
         for(var i=0;i<2;i++){
             new BlackDuck(difficultyReward).delay((Math.random()*5000)+minimumTime).animate({left:"3000px"},7000-speed)
             new GBird(difficultyReward).delay((Math.random()*5000)+minimumTime).animate({left:"3000px"},7000-speed)
             new WhiteDuck(difficultyReward).delay((Math.random()*5000)+minimumTime).animate({left:"3000px"},7000-speed)
         }
-        generateDucks((minimumTime-5000),difficultyReward,speed)
+        generateDucks((minimumTime-5000),difficultyReward,speed)    //spreading the call every 5 secs to make sure there is always a duck on the screen
     }
-    //============end of ramy code============
+    //============ending of ramy code============
 
 
 
@@ -117,10 +119,10 @@ $(function(){
                 $('#totalscore').text(localStorage.getItem(sessionStorage.getItem("name")))
                 $('#gamescore').text($('#myscore').text());
                 $('body').css("cursor","inherit")
-                //============end of ramy code============
+                //============ending of ramy code============
 
 
             }
         }, 1000);
-        //============end of haidy code============
+        //============ending of haidy code============
        }
