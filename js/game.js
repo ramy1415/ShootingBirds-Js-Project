@@ -20,6 +20,8 @@ $(function(){
             })
         //============end of haidy code============
 
+
+
         //============begginning of ramy code============
         var difficultyReward=Math.floor(((parseInt)(sessionStorage.getItem("difficulty")))/10);// amount of points to be added when clicking a duck depending on the difficulty
         var speed=(parseInt)(sessionStorage.getItem("difficulty")*12);// speed of the duck movement depending on the difficulty
@@ -41,6 +43,8 @@ $(function(){
         //============end of ramy code============
 
 
+
+
         //============begginning of Atef code============
         window.bomb=setInterval(function(){ //generating a bomb every 6 seconds
             let bombExpectedLeft = Number.parseInt(Math.random() * 900) + 1;                
@@ -48,8 +52,16 @@ $(function(){
             }, 6000);
         //============end of Atef code============
         
+
+
         
     }
+    // ============Stand Alone Functions============
+
+
+
+
+    
     //============begginning of ramy code============
     function generateDucks(minimumTime,difficultyReward,speed){ //this function creates a 2 black/white/gold ducks every 5 seconds on a random time over 60 seconds 
         if(minimumTime<0){return}
@@ -62,6 +74,9 @@ $(function(){
     }
     //============end of ramy code============
 
+
+
+
     //============begginning of haidy code============
     function gunSound(){//making gun sound on click
         var audio = document.createElement("audio");
@@ -70,7 +85,7 @@ $(function(){
         audio.addEventListener("ended", function(e){
         }, false);
     }
-    function startTimer(){
+    function startTimer(){//starting time every time a game starts of one minute
         var min = 0;
         var sec = 60;
         var timer = setInterval(function(){
@@ -80,8 +95,8 @@ $(function(){
                 min -= 1;
                 sec = 59;
             }
-            if(min < 0){
-                $("#replayModel").modal('show');
+            if(min < 0){//when time is up all game resets again and saves scores
+                $("#replayModel").modal('show');    //and showing the replay dialog
                 clearInterval(timer);
                 clearInterval(window.bomb)
                 $(".Duck").finish()
@@ -89,7 +104,9 @@ $(function(){
                 $(".moon").css("left","100%")
                 $(".sun").css("left","100px")
                 $("#game").css("background-color","rgb(129, 185, 215)")
-                //============begginning of ramy code============
+
+
+                //============begginning of ramy code============ (score task)
                 var score=(parseInt)($('#totalscore').text())   //getting the account score of all games
                 var gameScore=(parseInt)($('#bestscore').text())    //getting this game score
                 var playerBestScore=(parseInt)(localStorage.getItem(sessionStorage.getItem("name")+"Best")) //getting the hiest score this player got in a game
@@ -101,6 +118,8 @@ $(function(){
                 $('#gamescore').text($('#myscore').text());
                 $('body').css("cursor","inherit")
                 //============end of ramy code============
+
+
             }
         }, 1000);
         //============end of haidy code============
