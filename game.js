@@ -1,11 +1,10 @@
 import { BlackDuck,GBird,WhiteDuck,Bomb} from './BlackDuck.js';
 //ramy
 $(function(){
-    var difficulty=sessionStorage.getItem("difficulty")*12
     $("#exampleModalCenter").modal('show')
     $('#myscore').text(0);
     $('#myname').text(sessionStorage.getItem("name"));
-    $('#mydiff').text(difficulty);
+    $('#myreward').text("+ 0 points");
     $("#StartGame").on('click',function(){
         StartGame();
     })
@@ -19,16 +18,19 @@ $(function(){
         var speed=(parseInt)(sessionStorage.getItem("difficulty")*12);
         $("#exampleModalCenter").modal('hide')
         $("#replayModel").modal('hide')
+        $('#myreward').text("+ "+difficultyReward+" points");
         $('#totalscore').text(localStorage.getItem(sessionStorage.getItem("name")));
         $('#bestscore').text(0);
         $('#myscore').text(0);
+        $('#gamescore').text(0);
+        $('#game').css("color","green")
         generateDucks(60000,difficultyReward,speed)
         window.bomb=setInterval(function(){
             let bombExpectedLeft = Number.parseInt(Math.random() * 900) + 1;                
             new Bomb(bombExpectedLeft).delay(2000).hide(500);
             }, 6000);
         $("#game").animate({
-            color: "purple",
+            color: "red",
             backgroundColor: "rgb( 2, 28, 54 )"
           },30000);
         $("body").on('click',function(){
@@ -82,6 +84,7 @@ $(function(){
                     localStorage.setItem(sessionStorage.getItem("name")+"Best",$('#bestscore').text())
                 $('#bestscore').text(localStorage.getItem(sessionStorage.getItem("name")+"Best"))
                 $('#totalscore').text(localStorage.getItem(sessionStorage.getItem("name")))
+                $('#gamescore').text($('#myscore').text());
             }
         }, 1000);
        }

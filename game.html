@@ -56,9 +56,12 @@
             border: 1px solid black;
             -webkit-user-select: none;
             -webkit-user-drag: none;
+            color: green;
         }
-        span {
+        .row>span {
             z-index: 1;
+            font-size: 2vh;
+            font-weight: bold;
         }
         .bg {
             background-image: url("images/back.png");
@@ -100,7 +103,6 @@
             position: absolute;
             top: 30%;
             left: 35%;
-            border: 1px red solid;
             -webkit-user-select: none;
             -webkit-user-drag: none;
         }
@@ -140,7 +142,8 @@
                         <br>
                         <br>
                         <p>Total Score : <span id="totalscore"> 0 </span></p>
-                        <p>best Score : <span id="bestscore"> 0 </span></p>
+                        <p>Best Score : <span id="bestscore"> 0 </span></p>
+                        <p>This game Score : <span id="gamescore">0</span></p>
                     </div>
                     
                     <div class="modal-footer">
@@ -156,8 +159,8 @@
             <span id="myscore">0</span>
             <span>name : </span>
             <span id="myname">player name</span>
-            <span>diff : </span>
-            <span id="mydiff">255</span>
+            <span>reward : </span>
+            <span id="myreward">0</span>
             <img src="images/back.png" alt="" style="width: 100%; position: absolute;bottom: 0;">
             <span >
                 &nbsp;&nbsp;Timer:&nbsp;<span id="timer">0:00</span>
