@@ -15,12 +15,14 @@ $(function(){
 })
     function StartGame(){
         startTimer();
+        var difficultyReward=Math.floor(((parseInt)(sessionStorage.getItem("difficulty")))/10);
+        var speed=(parseInt)(sessionStorage.getItem("difficulty")*12);
         $("#exampleModalCenter").modal('hide')
         $("#replayModel").modal('hide')
         $('#totalscore').text(localStorage.getItem(sessionStorage.getItem("name")));
         $('#bestscore').text(0);
         $('#myscore').text(0);
-        generateDucks(60000)
+        generateDucks(60000,difficultyReward,speed)
         window.bomb=setInterval(function(){
             let bombExpectedLeft = Number.parseInt(Math.random() * 900) + 1;                
             new Bomb(bombExpectedLeft).delay(2000).hide(500);
@@ -37,15 +39,14 @@ $(function(){
             $(".sun").animate({left:"110%"},1000,"easeOutExpo")
         }, 30000);
     }
-    function generateDucks(minimumTime=0){
-        if(minimumTime==0){return}
-        var difficulty=sessionStorage.getItem("difficulty")*12;
+    function generateDucks(minimumTime,difficultyReward,speed){
+        if(minimumTime<=0){return}
         for(var i=0;i<2;i++){
-            new BlackDuck(100,100).delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-difficulty)
-            new GBird().delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-difficulty)
-            new WhiteDuck().delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-difficulty)
+            new BlackDuck(difficultyReward).delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-speed)
+            new GBird(difficultyReward).delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-speed)
+            new WhiteDuck(difficultyReward).delay((Math.random()*5000)+minimumTime).animate({left:"2000px"},9000-speed)
         }
-        generateDucks(minimumTime-5000)
+        generateDucks((minimumTime-5000),difficultyReward,speed)
     }
     function gunSound(){
         var audio = document.createElement("audio");

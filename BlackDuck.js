@@ -1,16 +1,14 @@
 class BlackDuck{
-    constructor(speed,place){
-        this.speed=speed;
-        this.place=place;
+    constructor(reward){
         this.clicked=false;
         var s=$('<img class="BlackDuck Duck" src="images/BlackDuck.gif" alt="" draggable="false">')
         $(s).css({'left':"-200px",'position':'absolute','top':Math.random()*60+"%"})
         $("#game").append(s);
         $(s).on('click',function(){
             if(!this.clicked){
-                $("#totalscore").text((parseInt)($("#totalscore").text())-10)
-                $("#bestscore").text((parseInt)($("#bestscore").text())-10)
-                $("#myscore").text((parseInt)($("#myscore").text())-10)
+                $("#totalscore").text((parseInt)($("#totalscore").text())-10+reward)
+                $("#bestscore").text((parseInt)($("#bestscore").text())-10+reward)
+                $("#myscore").text((parseInt)($("#myscore").text())-10+reward)
             }
             this.clicked=true;
             $(s).attr('src',"images/deadBlack.png")
@@ -23,7 +21,7 @@ class BlackDuck{
 //haidy
 class GBird
 {
-    constructor(){
+    constructor(reward){
     this.bird = document.createElement('img');
     this.bird.src="images/gold.gif";
     this.clicked=false;
@@ -34,9 +32,9 @@ class GBird
     document.querySelector("#game").appendChild(this.bird);
     $(this.bird).on('click',function(){
         if(!this.clicked){
-            $("#totalscore").text((parseInt)($("#totalscore").text())+20) 
-            $("#bestscore").text((parseInt)($("#bestscore").text())+20) 
-            $("#myscore").text((parseInt)($("#myscore").text())+20) 
+            $("#totalscore").text((parseInt)($("#totalscore").text())+20+reward) 
+            $("#bestscore").text((parseInt)($("#bestscore").text())+20+reward) 
+            $("#myscore").text((parseInt)($("#myscore").text())+20+reward) 
         }
         this.clicked=true;
         $(this).attr('src',"images/deadGold.png")
@@ -48,7 +46,7 @@ class GBird
 }
 //Atef
 class WhiteDuck {
-    constructor() {
+    constructor(reward) {
         this.duckBody = $("<img/>");
         this.duckBody.attr("src", "images/red.gif");
         this.duckBody.css({"top":Math.random() * 60+"%","left":"-100px","position":"absolute"});
@@ -59,9 +57,9 @@ class WhiteDuck {
         $("#game").append(this.duckBody);
         $(this.duckBody).on('click',function(){
             if(!this.clicked){
-                $("#totalscore").text((parseInt)($("#totalscore").text())+5) 
-                $("#bestscore").text((parseInt)($("#bestscore").text())+5)
-                $("#myscore").text((parseInt)($("#myscore").text())+5)
+                $("#totalscore").text((parseInt)($("#totalscore").text())+5+reward) 
+                $("#bestscore").text((parseInt)($("#bestscore").text())+5+reward)
+                $("#myscore").text((parseInt)($("#myscore").text())+5+reward)
             }
             this.clicked=true;
             $(this).attr('src',"images/deadRed.png")
