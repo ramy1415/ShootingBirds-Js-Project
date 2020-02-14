@@ -53,12 +53,15 @@
             -webkit-user-select: none;
             -webkit-user-drag: none;
             color: red;
+            font-weight: bold;
+            font-style: italic;
         }
         .details>div {
             z-index: 1;
             font-size: 2vh;
             font-weight: bold;
             margin: 0 auto;
+            color: white;
         }
         .Duck{
             width: 10vh;
@@ -134,10 +137,12 @@
             <img class="sun" src="images/sun.gif" alt="">
             <img class="moon" src="images/loop_luna_talking.gif" alt="">
             <div>
+                <img src="images/score.png" style="width:10vh; height:5vh;"/>
                 <span>score : </span>
                 <span id="myscore">0</span>
             </div>
             <div>
+                <img src="images/user.png" style="width:5vh; height:5vh;" />
                 <span>name : </span>
                 <span id="myname">player name</span>
             </div>
@@ -147,6 +152,7 @@
             </div>
             <div>
                 <span >
+                    <img src="images/stopwatch.png" style="width:5vh; height:5vh;"/>
                     &nbsp;&nbsp;Timer:&nbsp;<span id="timer">0:00</span>
                 </span> 
             </div>

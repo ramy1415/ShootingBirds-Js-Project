@@ -24,7 +24,7 @@ $(function(){
         var difficultyReward=Math.floor(((parseInt)(sessionStorage.getItem("difficulty")))/10);// amount of points to be added when clicking a duck depending on the difficulty
         var speed=(parseInt)(sessionStorage.getItem("difficulty")*12);// speed of the duck movement depending on the difficulty
         generateDucks(60000,difficultyReward,speed) //generating all ducks over 60 seconds , also passing the amount of reward points and speed of the animation
-        $("#game").animate({
+        $("#game").animate({    //change background to night over 30 sec
             backgroundColor: "rgb( 2, 28, 54 )"
           },30000);
         setTimeout(function(){ 
