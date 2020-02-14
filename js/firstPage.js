@@ -2,6 +2,7 @@
 //setting difficulty and game sound and cursor image
 $(function () {
   $("#tabs").tabs();
+  sessionStorage.setItem("crosshair","images/aim1.png") //default crosshair image if nothing was choosen
   function hexFromRGB(r, g, b) {
     var hex = [
       r.toString(16),
