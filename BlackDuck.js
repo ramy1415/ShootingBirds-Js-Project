@@ -6,9 +6,9 @@ class BlackDuck{
         $("#game").append(s);
         $(s).on('click',function(){
             if(!this.clicked){
-                $("#totalscore").text((parseInt)($("#totalscore").text())-10+reward)
-                $("#bestscore").text((parseInt)($("#bestscore").text())-10+reward)
-                $("#myscore").text((parseInt)($("#myscore").text())-10+reward)
+                $("#totalscore").text((parseInt)($("#totalscore").text())-10-reward)
+                $("#bestscore").text((parseInt)($("#bestscore").text())-10-reward)
+                $("#myscore").text((parseInt)($("#myscore").text())-10-reward)
             }
             this.clicked=true;
             $(s).attr('src',"images/deadBlack.png")
